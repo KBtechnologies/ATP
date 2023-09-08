@@ -12,7 +12,7 @@ So I started this here
 
 ### Sensitive and Classified Information Exchange
 Not everything can or should be transfered in the open, or at least not in a way that makes it trivial to [eavesdrop](https://en.wikipedia.org/wiki/Eavesdropping) and/or [manipulate](https://en.wikipedia.org/wiki/Replay_attack) data being transfered.
-- This includes public and espechally private keys in asymetric encryption systems, like OpenPGP/GnuPG or similar.
+- This includes [public and espechally private keys](https://en.wikipedia.org/wiki/Public-key_cryptography) in asymetric encryption systems, like OpenPGP, GnuPG or similar.
 
 ### Deployment of Updates onto Airgapped Systems
 To prevent ["Juice Jacking"](https://en.wikipedia.org/wiki/Juice_jacking) and other methods of attacks onto systems by physically connecting data lines to them.
@@ -42,26 +42,32 @@ Espechally for [Commercial Off-The-Shelf (COTS)](https://en.wikipedia.org/wiki/C
 
 ---
 ## How?
+The ATP Standard aims to be easy to implement and use.
 
-### 1. Archive Generation
+### Encoding
+#### 1. Archive Generation
 The data to be tansmitted is to be collected in a container [this may be a folder or tar archive].
+###
 
-### 2. Optional Compression
+#### 2. Optional Compression
 The Container is then to be compressed if desired.
 - Compression is optional and can be omnitted.
   - Compression should be omnitted if the output is "not smaller" in that it could save any space in the sense of outputting less "splinters".
+###
 
-### 3. Encryption
+#### 3. Encryption
 The optionally compressed Container can also be encrypted.
 - Encryption is optional and can be omnitted.
   - Encryption can be handled externally by tools like [AESCrypt](https://www.aescrypt.com/), [age](https://github.com/FiloSottile/age), [enc](https://github.com/life4/enc), [OpenSSL](https://askubuntu.com/questions/60712/how-do-i-quickly-encrypt-a-file-with-aes/60713#60713), [GnuPG](https://en.wikipedia.org/wiki/GNU_Privacy_Guard) - regardless if [Public-Private Keys](https://en.wikipedia.org/wiki/Pretty_Good_Privacy#OpenPGP) or [symmetric keys](https://askubuntu.com/questions/60712/how-do-i-quickly-encrypt-a-file-with-aes/449647#449647) are being used.
+###
 
-### 4. Checksumming
+#### 4. Checksumming
 The Container is then checksummed.
 - Checksumming can, but should not be omnitted.
   - A secure algorithm like [SHA3-512](https://en.wikipedia.org/wiki/SHA-3) is recommended.
+###
 
-### 5. Header Creation
+#### 5. Header Creation
 A Header is being used to communicate the essential parameters, including the following:
 - Compression [if used, which type]
 - Encryption [if used, which type]
@@ -75,16 +81,27 @@ A Header is being used to communicate the essential parameters, including the fo
   - In practical use, it's expected that rarely more than a few dozen or hundred will be needed to transfer said data.
   - The first splinter must contain the header.
 - Size of the Splits [as of now, a maximum of 2¹⁶-1 = 65535 bytes is specified.]
-- Unix Timestamp of Creation [can be omnitted]
+- Unix Timestamp of Creation [can be omnitted.]
+- Checksum of the header [if used, which type]
+  - [Adler-32](https://en.wikipedia.org/wiki/Adler-32) is recommended.
+##### Optional Link to a ["How To Decode?"](docs/howto-decode.md) - [Tutorial](https://en.wikipedia.org/wiki/Tutorial) if need be.
+This should help uninitiated people to actually recieve and decode it.
+###
 
-### 6. Splitting
+#### 6. Splitting
 To fit within the constraints of the medium used to transfer, the [optionally compressed] container is being split-to-size based off the parameters given.
+###
 
-### 7. Storage and/or Transfer
+#### 7. Storage and/or Transfer
 The Splitted Parts [which may be called splinters] will then be stored and if necessary, converted into the format that is desireable for transfer.
 - This can be [QR Codes](https://en.wikipedia.org/wiki/QR_code), [JAB Codes](https://en.wikipedia.org/wiki/JAB_Code) or other media.
   - Whilst not recommended, this could even be [RFID-](https://en.wikipedia.org/wiki/Radio-frequency_identification) and [NFC Tags](https://en.wikipedia.org/wiki/Near-field_communication) or [AFSK](https://en.wikipedia.org/wiki/Frequency-shift_keying#Audio_frequency-shift_keying) modulated Audio for transmission of [CB Radio](https://en.wikipedia.org/wiki/Citizens_band_radio) or Telephony as it's media agnostic.
-#### Since the System is designed to do Simplex Data Transfers, it can be be retransfered or [time-shifted](https://en.wikipedia.org/wiki/Time_shifting) as desired.
+##### Since the System is designed to do Simplex Data Transfers, it can be be retransfered or [time-shifted](https://en.wikipedia.org/wiki/Time_shifting) as desired.
+###
+
+### Decoding
+Basically the same prcess as Encoding in reverse.
+##### It's vital to have the complete header decoded successfully.
 
 ---
 ## Acknowledgements
@@ -92,13 +109,15 @@ The Splitted Parts [which may be called splinters] will then be stored and if ne
 ### Proof of Concepts
 - [Can you fit a whole game into a QR code?](https://www.youtube.com/watch?v=ExwqNreocpg), MattKC et. al.
   - Using a [QR Code](https://en.wikipedia.org/wiki/QR_code) to distribute a Win32 executeable of Snake which had to fit the [2.953 bytes size limit](https://en.wikipedia.org/wiki/QR_code#Information_capacity) of it.
+##
 
 ### Name
 The name is chosen as a resemblance to [FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol) as it aims at similar goals.
 - [AFTP is a closed-source protocol for making FTP faster](https://www.jscape.com/blog/introducing-accelerated-file-transfer) aimed to circumvent the [TCP Slow Start Problem](https://en.wikipedia.org/wiki/TCP_congestion_control#Slow_start) on high-latency links like SATCOM.
 - There also was an [FTP Client](https://en.wikipedia.org/wiki/Comparison_of_FTP_client_software) for [Android](https://en.wikipedia.org/wiki/Android_(operating_system)) named aFTP.
-
+######
 Since it not only can transfer Files but anything, ATP seemed to be a better naming for it.
+##
 
 ### Existing solutions
 #### Archive Splitting
@@ -107,6 +126,7 @@ Since it not only can transfer Files but anything, ATP seemed to be a better nam
   - It's also not trivial to reassemble the split archives unless natively supported by said application.
 - It's quite cumbersome for a lot of work and not easy to do by Tech-Illiterates.
   - Whilst solutions like [PeaZip](https://en.wikipedia.org/wiki/PeaZip) support cascaded encryption, they are not multi-platform.
+###
 
 #### Applications already in public existance
 - Updates for [REINER SCR Authenticator Devices are being distributed via YouTube Videos](https://www.youtube.com/watch?v=4Y4HqWP7my4)
@@ -114,7 +134,9 @@ Since it not only can transfer Files but anything, ATP seemed to be a better nam
     - This allows for updating the device in a secure manner by denying any opportunity for [Juice Jacking](https://en.wikipedia.org/wiki/Juice_jacking) and keeping said authenticator as an encapsulated decice and thus not needing to break any anti-tampering seals.
   - It is very likely these basically use a proprietary Imprementation of ATP that predates it with integrity checking, digital signatures and potentially even encryption to prevent malicious updates to be distributed and loaded.
     - At least that's what I hope for...
+###
 
 #### [SQR Codes](https://simple.wikipedia.org/wiki/SQR_codes)
 Which are a patented [Secure QR Codes](https://de.wikipedia.org/wiki/QR-Code#Secure-QR-Code) that are encrypted in part or whole.
 - These aim at the same, however being a patented and proprietary standard, to avoid infringement the ATP Standard aims to be more general and media-agnostic.
+###
