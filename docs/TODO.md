@@ -8,6 +8,7 @@
 ### Finalizing Standard
 #### Provide Sample Files
 #### Writing an [RFC](https://en.wikipedia.org/wiki/Request_for_Comments) ready for publication.
+- See [RFC-draft.md](docs/RFC-draft.md)
 ##### Getting it approved by [IETF](https://en.wikipedia.org/wiki/Internet_Engineering_Task_Force)
 - Similar to [security.txt](https://securitytxt.org/)
 ###
