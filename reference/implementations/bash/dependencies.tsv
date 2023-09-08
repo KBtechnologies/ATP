@@ -1,0 +1,7 @@
+NAME	VERSION	TYPE	COMMENT
+bash	-	shell	used to interpret the script
+tar	-	archive tool	used to create containers
+split	-	tool	used to split a file onto multiple smaller ones
+cat	-	tool	used to merge the files together
+bzip2	-	compression	tool to compress files
+pipe	-	tool	used to shove data from/to stdin/stdout between commands
