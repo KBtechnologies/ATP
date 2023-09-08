@@ -110,7 +110,7 @@ Basically the same prcess as Encoding in reverse.
 - [Can you fit a whole game into a QR code?](https://www.youtube.com/watch?v=ExwqNreocpg), MattKC et. al.
   - Using a [QR Code](https://en.wikipedia.org/wiki/QR_code) to distribute a Win32 executeable of Snake which had to fit the [2.953 bytes size limit](https://en.wikipedia.org/wiki/QR_code#Information_capacity) of it.
 
-In fact, one could just take a file, encode it in as [Base64](https://en.wikipedia.org/wiki/Base64) as per [RFC 4648](https://en.wikipedia.org/wiki/Base64#RFC_4648) and spit it out as QR Code.
+In fact, one could just take a file, encode it in as [Base64](https://en.wikipedia.org/wiki/Base64) as per [RFC 4648](https://datatracker.ietf.org/doc/html/rfc4648) and spit it out as QR Code.
 - This also means one could manually split and merge larger files.
   - In fact, automating that away is [the reason this was started in the first place](README.md#Why).
 ###
