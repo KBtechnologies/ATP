@@ -47,25 +47,25 @@ The ATP Standard aims to be easy to implement and use.
 ### Encoding
 #### 1. Archive Generation
 The data to be tansmitted is to be collected in a container [this may be a folder or tar archive].
-###
+####
 
 #### 2. Optional Compression
 The Container is then to be compressed if desired.
 - Compression is optional and can be omnitted.
   - Compression should be omnitted if the output is "not smaller" in that it could save any space in the sense of outputting less "splinters".
-###
+####
 
 #### 3. Encryption
 The optionally compressed Container can also be encrypted.
 - Encryption is optional and can be omnitted.
   - Encryption can be handled externally by tools like [AESCrypt](https://www.aescrypt.com/), [age](https://github.com/FiloSottile/age), [enc](https://github.com/life4/enc), [OpenSSL](https://askubuntu.com/questions/60712/how-do-i-quickly-encrypt-a-file-with-aes/60713#60713), [GnuPG](https://en.wikipedia.org/wiki/GNU_Privacy_Guard) - regardless if [Public-Private Keys](https://en.wikipedia.org/wiki/Pretty_Good_Privacy#OpenPGP) or [symmetric keys](https://askubuntu.com/questions/60712/how-do-i-quickly-encrypt-a-file-with-aes/449647#449647) are being used.
-###
+####
 
 #### 4. Checksumming
 The Container is then checksummed.
 - Checksumming can, but should not be omnitted.
   - A secure algorithm like [SHA3-512](https://en.wikipedia.org/wiki/SHA-3) is recommended.
-###
+####
 
 #### 5. Header Creation
 A Header is being used to communicate the essential parameters, including the following:
@@ -86,18 +86,18 @@ A Header is being used to communicate the essential parameters, including the fo
   - [Adler-32](https://en.wikipedia.org/wiki/Adler-32) is recommended.
 ##### Optional Link to a ["How To Decode?"](docs/howto-decode.md) - [Tutorial](https://en.wikipedia.org/wiki/Tutorial) if need be.
 This should help uninitiated people to actually recieve and decode it.
-###
+####
 
 #### 6. Splitting
 To fit within the constraints of the medium used to transfer, the [optionally compressed] container is being split-to-size based off the parameters given.
-###
+####
 
 #### 7. Storage and/or Transfer
 The Splitted Parts [which may be called splinters] will then be stored and if necessary, converted into the format that is desireable for transfer.
 - This can be [QR Codes](https://en.wikipedia.org/wiki/QR_code), [JAB Codes](https://en.wikipedia.org/wiki/JAB_Code) or other media.
   - Whilst not recommended, this could even be [RFID-](https://en.wikipedia.org/wiki/Radio-frequency_identification) and [NFC Tags](https://en.wikipedia.org/wiki/Near-field_communication) or [AFSK](https://en.wikipedia.org/wiki/Frequency-shift_keying#Audio_frequency-shift_keying) modulated Audio for transmission of [CB Radio](https://en.wikipedia.org/wiki/Citizens_band_radio) or Telephony as it's media agnostic.
 ##### Since the System is designed to do Simplex Data Transfers, it can be be retransfered or [time-shifted](https://en.wikipedia.org/wiki/Time_shifting) as desired.
-###
+####
 
 ### Decoding
 Basically the same prcess as Encoding in reverse.
@@ -109,7 +109,11 @@ Basically the same prcess as Encoding in reverse.
 ### Proof of Concepts
 - [Can you fit a whole game into a QR code?](https://www.youtube.com/watch?v=ExwqNreocpg), MattKC et. al.
   - Using a [QR Code](https://en.wikipedia.org/wiki/QR_code) to distribute a Win32 executeable of Snake which had to fit the [2.953 bytes size limit](https://en.wikipedia.org/wiki/QR_code#Information_capacity) of it.
-##
+
+In fact, one could just take a file, encode it in as [Base64](https://en.wikipedia.org/wiki/Base64) as per [RFC 4648](https://en.wikipedia.org/wiki/Base64#RFC_4648) and spit it out as QR Code.
+- This also means one could manually split and merge larger files.
+  - In fact, automating that away is [the reason this was started in the first place](README.md#Why).
+###
 
 ### Name
 The name is chosen as a resemblance to [FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol) as it aims at similar goals.
@@ -117,7 +121,7 @@ The name is chosen as a resemblance to [FTP](https://en.wikipedia.org/wiki/File_
 - There also was an [FTP Client](https://en.wikipedia.org/wiki/Comparison_of_FTP_client_software) for [Android](https://en.wikipedia.org/wiki/Android_(operating_system)) named aFTP.
 ######
 Since it not only can transfer Files but anything, ATP seemed to be a better naming for it.
-##
+###
 
 ### Existing solutions
 #### Archive Splitting
