@@ -8,7 +8,7 @@
 I wanted to find a sleek and secure way to exchange private keys securely and conveniently between devices that only have a cameras and screens.
 - Said Keys exceeded the size of a QR Code, so I had to manually split and merge them, which was annoying me into "*weapons-grade boredom*".
 
-So I started this here
+So I started this here...
 
 ### Sensitive and Classified Information Exchange
 Not everything can or should be transfered in the open, or at least not in a way that makes it trivial to [eavesdrop](https://en.wikipedia.org/wiki/Eavesdropping) and/or [manipulate](https://en.wikipedia.org/wiki/Replay_attack) data being transfered.
@@ -143,4 +143,10 @@ Since it not only can transfer Files but anything, ATP seemed to be a better nam
 #### [SQR Codes](https://simple.wikipedia.org/wiki/SQR_codes)
 Which are a patented [Secure QR Codes](https://de.wikipedia.org/wiki/QR-Code#Secure-QR-Code) that are encrypted in part or whole.
 - These aim at the same, however being a patented and proprietary standard, to avoid infringement the ATP Standard aims to be more general and media-agnostic.
+###
+
+#### [PhotoTAN](https://de.wikipedia.org/wiki/Transaktionsnummer#photoTAN_und_QR-TAN)
+Which is a [PSD2](https://en.wikipedia.org/wiki/Payment_Services_Directive#Revised_Directive_on_Payment_Services_(PSD2))-compliant [TAN](https://en.wikipedia.org/wiki/Transaction_authentication_number) System designed to authenticate Bank Transactions.
+- It typically uses a 25x25 pixel grid which has either red, green, blue or no [white] dots and can encode around 100 Bytes od Data.
+  - It is being used with either Apps or dedicaded devices to Authorize Transactions.
 ###
