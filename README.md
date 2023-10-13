@@ -113,7 +113,7 @@ Basically the same prcess as Encoding in reverse.
 In fact, one could just take a file, encode it in as [Base64](https://en.wikipedia.org/wiki/Base64) as per [RFC 4648](https://datatracker.ietf.org/doc/html/rfc4648) and spit it out as QR Code.
 - This also means one could manually split and merge larger files.
   - In fact, automating that away is [the reason this was started in the first place](README.md#Why).
-###
+####
 
 ### Name
 The name is chosen as a resemblance to [FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol) as it aims at similar goals.
@@ -121,7 +121,7 @@ The name is chosen as a resemblance to [FTP](https://en.wikipedia.org/wiki/File_
 - There also was an [FTP Client](https://en.wikipedia.org/wiki/Comparison_of_FTP_client_software) for [Android](https://en.wikipedia.org/wiki/Android_(operating_system)) named aFTP.
 ######
 Since it not only can transfer Files but anything, ATP seemed to be a better naming for it.
-###
+####
 
 ### Existing solutions
 #### Archive Splitting
@@ -130,7 +130,7 @@ Since it not only can transfer Files but anything, ATP seemed to be a better nam
   - It's also not trivial to reassemble the split archives unless natively supported by said application.
 - It's quite cumbersome for a lot of work and not easy to do by Tech-Illiterates.
   - Whilst solutions like [PeaZip](https://en.wikipedia.org/wiki/PeaZip) support cascaded encryption, they are not multi-platform.
-###
+####
 
 #### Applications already in public existance
 - Updates for [REINER SCR Authenticator Devices are being distributed via YouTube Videos](https://www.youtube.com/watch?v=4Y4HqWP7my4)
@@ -138,15 +138,15 @@ Since it not only can transfer Files but anything, ATP seemed to be a better nam
     - This allows for updating the device in a secure manner by denying any opportunity for [Juice Jacking](https://en.wikipedia.org/wiki/Juice_jacking) and keeping said authenticator as an encapsulated decice and thus not needing to break any anti-tampering seals.
   - It is very likely these basically use a proprietary Imprementation of ATP that predates it with integrity checking, digital signatures and potentially even encryption to prevent malicious updates to be distributed and loaded.
     - At least that's what I hope for...
-###
+####
 
 #### [SQR Codes](https://simple.wikipedia.org/wiki/SQR_codes)
 Which are a patented [Secure QR Codes](https://de.wikipedia.org/wiki/QR-Code#Secure-QR-Code) that are encrypted in part or whole.
 - These aim at the same, however being a patented and proprietary standard, to avoid infringement the ATP Standard aims to be more general and media-agnostic.
-###
+####
 
 #### [PhotoTAN](https://de.wikipedia.org/wiki/Transaktionsnummer#photoTAN_und_QR-TAN)
 Which is a [PSD2](https://en.wikipedia.org/wiki/Payment_Services_Directive#Revised_Directive_on_Payment_Services_(PSD2))-compliant [TAN](https://en.wikipedia.org/wiki/Transaction_authentication_number) System designed to authenticate Bank Transactions.
 - It typically uses a 25x25 pixel grid which has either red, green, blue or no [white] dots and can encode around 100 Bytes od Data.
   - It is being used with either Apps or dedicaded devices to Authorize Transactions.
-###
+####

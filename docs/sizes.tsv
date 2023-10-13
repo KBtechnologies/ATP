@@ -1,0 +1,10 @@
+SERVICE NAME	PROVIDER	SIZE	UNIT	TYPE	SOURCE	NOTES
+Short Burst Data	Iridium	270	characters	ASCII	https://www.iridium.com/idr-file/306507	need to be converted to i.e. base64url [ https://en.wikipedia.org/wiki/Base64#RFC_4648 ]
+Version 10 L	QR-Code	271	bytes	binary	https://www.qrcode.com/en/about/version.html	7% redundancy
+Version 22 L	QR-Code	1.003	bytes	binary	https://www.qrcode.com/en/about/version.html	7% redundancy
+Version 23 L	QR-Code	1.091	bytes	binary	https://www.qrcode.com/en/about/version.html	7% redundancy
+Version 31 Q	QR-Code	1.030	bytes	binary	https://www.qrcode.com/en/about/version.html	25% redundancy
+Version 26 M	QR-Code	1.059	bytes	binary	https://www.qrcode.com/en/about/version.html	15% redundancy
+Version 33 L	QR-Code	2.068	bytes	binary	https://www.qrcode.com/en/about/version.html	7% redundancy
+Version 40 H	QR-Code	1.273	bytes	binary	https://www.qrcode.com/en/about/version.html	30% redundancy
+Version 40 L	QR-Code	2.953	bytes	binary	https://www.qrcode.com/en/about/version.html	7% redundancy

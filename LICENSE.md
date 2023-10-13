@@ -1,5 +1,6 @@
 # ATP
-## License
+### Airgapped Transfer Protocol
+## LICENSE
 
 ---
 ### BSD 2-Clause License
